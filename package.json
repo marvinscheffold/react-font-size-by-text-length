@@ -1,6 +1,6 @@
 {
   "name": "react-font-size-by-text-length",
-  "description": "A component that dynamically sets a font size based on the length of text passed into it",
+  "description": "Dynamic font size component for ReactJS",
   "keywords": [
     "react dynamic font size",
     "react font size",

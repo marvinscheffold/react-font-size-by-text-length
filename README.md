@@ -1,46 +1,80 @@
-# Getting Started with Create React App
+# react-font-size-by-text-length
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Dynamic font size component for ReactJS
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+* [Installation](#installation)
+* [API documentation](#api-documentation)
+* [Examples](#examples)
+* [Demos](#demos)
 
-### `npm start`
+## Installation
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+To install, you can use [npm](https://npmjs.org/):
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+    $ npm install --save react-font-size-by-text-length
 
-### `npm test`
+## API documentation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+| Name  |Type | Default | Description |
+| ------------- | ------------- | ------------- | ------------- |
+| children | ReactElement[] &#124; ReactElement |  | Children or Array of Children which include text, icons or other ReactElements |
+| maxPercent  | number  | 100 | Font size for the first char based on outside css rules |
+| minPercent  | number | 0  | Specifies at which font size the component should not reduce further |
+| changePerChar  | number  |  | How many percent per char should the font size change |
+| startAtChar  | number | 0  | When passed string has this length the font size reduction begins  |
+| stopAtChar  | number | Infinity  | When passed string has this length the font size reduction ends  |
 
-### `npm run build`
+## Examples
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Here is a simple example of react-font-size-by-text-length being used in an app:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```jsx
+import React from 'react';
+import ReactDOM from 'react-dom';
+import ReactFontSizeByTextLength from 'react-font-size-by-text-length';
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+function App() {
+    const textArray = ["hello", "world"]
+  return (
+    <>
+      // Example One
+      
+      <ReactFontSizeByTextLength changePerChar={10}>
+        <span>This text will be smaller</span>
+      </ReactFontSizeByTextLength>
+      
+      <ReactFontSizeByTextLength changePerChar={10}>
+        <span>Than this text</span>
+      </ReactFontSizeByTextLength>
 
-### `npm run eject`
+      // Example Two
+      
+      <ReactFontSizeByTextLength changePerChar={10}>
+        <span>
+          This works 
+          <i class="fas fa-check-circle"></i>
+        </span>
+      </ReactFontSizeByTextLength>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+        // Example Three
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+        <ReactFontSizeByTextLength changePerChar={10}>
+            {textArray.map((text)=> <span>{text}</span>)}
+        </ReactFontSizeByTextLength>
+    </>
+  );
+}
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+ReactDOM.render(<App />, appElement);
+```
 
-## Learn More
+## Demos
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+There is one demo hosted on GitHub which
+demonstrate how this component can be used in a calculator app:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+* [Calculator App](https://marvinscheffold.github.io/react-calculator/)
+* Want to contribute a demo? Make a pull request

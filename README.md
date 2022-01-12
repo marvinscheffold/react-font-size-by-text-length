@@ -78,7 +78,7 @@ ReactDOM.render(<App />, document.getElementById("root"));
 
 
 There is one demo hosted on GitHub which
-demonstrate how this component can be used in a calculator app:
+demonstrates how this component can be used in a calculator app:
 
 * [Calculator App](https://marvinscheffold.github.io/react-calculator/)
 * Want to contribute a demo? Make a pull request

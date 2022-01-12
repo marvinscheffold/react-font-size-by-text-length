@@ -28,7 +28,7 @@ To install, you can use [npm](https://npmjs.org/):
 
 ## Examples
 
-Here is a simple example of react-font-size-by-text-length being used in an app:
+Here are three simple example of react-font-size-by-text-length being used in an app:
 
 ```jsx
 import React from 'react';
@@ -39,7 +39,7 @@ function App() {
     const textArray = ["hello", "world"]
   return (
     <>
-      // Example One
+      // ---- Example One -----
       
       <ReactFontSizeByTextLength changePerChar={10}>
         <span>This text will be smaller</span>
@@ -49,9 +49,9 @@ function App() {
         <span>Than this text</span>
       </ReactFontSizeByTextLength>
 
-      // Example Two
+      // ---- Example Two -----
       
-      <ReactFontSizeByTextLength changePerChar={10}>
+      <ReactFontSizeByTextLength changePerChar={5} startAtChar={2}>
         <span>
           This works 
           <i class="fas fa-check-circle"></i>
@@ -59,19 +59,26 @@ function App() {
       </ReactFontSizeByTextLength>
 
 
-        // Example Three
+        // ---- Example Three -----
 
-        <ReactFontSizeByTextLength changePerChar={10}>
-            {textArray.map((text)=> <span>{text}</span>)}
+        <ReactFontSizeByTextLength changePerChar={3} minPercent={50}>
+            {
+                textArray.map((text) =>
+                    <span>{text}</span>
+            )}
         </ReactFontSizeByTextLength>
     </>
   );
 }
 
-ReactDOM.render(<App />, appElement);
+ReactDOM.render(<App />, document.getElementById("root"));
 ```
 
 ## Demos
+
+
+
+
 
 There is one demo hosted on GitHub which
 demonstrate how this component can be used in a calculator app:
